@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "EdTech - The Reason I Study Software Development"
-date:   2017-09-07 20:42:58 +0000
+date:   2017-09-07 16:42:59 -0400
 ---
 
 
