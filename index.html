@@ -1,10 +1,195 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>lnbatioco</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Loryleen Batioco</title>
+
+    <!-- Bootstrap automatically links to its css -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom style css -->
+    <link href="./css/master.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+
+    <!-- Social Icons -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   </head>
+
+
+
   <body>
-    <h1>HELLO, WORLD!</h1>
+    <!-- START container : transparent! opacity: 0.2 -->
+    <div class="container">
+
+
+<!-- BANNER -->
+      <div id="banner" class="row">     <!-- row 1 -->
+        <div class="col-sm-12">
+          <p><span id="lvl-up">level up</span>, lory</p>
+        </div>
+      </div> <!-- END BANNER + row 1 -->
+
+
+
+
+<!-- START NAV TABS HERE -->
+      <div class="row">     <!-- row -->
+        <div class="col-sm-12">     <!-- col-sm-12 -->
+          <ul class="nav nav-pills">    <!-- nav nav-pills -->
+            <li class="active"><a data-toggle="pill" href="#home">Home</a></li>
+            <li><a data-toggle="pill" href="#menu1">Blog</a></li>
+            <li><a data-toggle="pill" href="#menu2">Code</a></li>
+            <!-- C O N T A C T <li><a data-toggle="pill" href="#menu3">Contact</a></li> -->
+          </ul>
+          <div class="tab-content">
+
+     <!-- H O M E -->
+            <div id="home" class="tab-pane fade in active">
+              <div class="col-sm-12">
+                <img class="profilepic" src="images/mypic.jpg">
+                <h3>Loryleen Batioco</h3>
+                <!-- s o c i a l  i c o n s -->
+                <span class="social-icons">
+                  <i class="fa fa-github" style="font-size:36px"></i>
+                  <i class="fa fa-linkedin-square" style="font-size:36px"></i>
+                  <i class="fa fa-youtube-square" style="font-size:36px"></i>
+                </span>
+
+                <p>I am an aspiring web developer interested in EdTech. When I need a break from coding I win-ctrl-right, put on my headset, and game.</p>
+
+                <br><br><br>
+
+                <h3>Contact</h3>
+                <!-- contact form -->
+                  <form action="#" method="post">
+                    <div class="col-sm-5">
+                      <label for="fullname"><!--user icon--><span class="glyphicon glyphicon-user"></label>
+                      <input type="text" id="fullname" name="fullname" placeholder="name" required>
+                      <br><br>
+
+                      <label for="email"><!--envelope icon--><span class="glyphicon glyphicon-envelope"></label>
+                      <input type="email" id="email" name="email" placeholder="email" required>
+                      <br>
+                    </div>
+
+                    <div class="col-sm-7">
+                      <label for="message"><!--pencil icon <span class="glyphicon glyphicon-pencil"></span> --></label>
+                      <textarea id="message" name="message" placeholder="message here"rows="3"></textarea>
+                      <span id="submit"><input type="submit" value="send"> </span>
+                    </div>
+
+                  </form>
+
+              </div>
+            </div>
+
+     <!-- B L O G -->
+            <div id="menu1" class="tab-pane fade">
+              <h3>Blog</h3>
+              <p><a href="_posts/2017-09-07-edtech_-_the_reason_i_study_software_development.markdown" target="_blank">September 9, 2017: Why I study stofware development</a></p>
+            </div>
+
+    <!-- C O D E -->
+            <div id="menu2" class="tab-pane fade">
+              <!--section 0
+              <h3>Webpages</h3>
+              <div class="col-sm-3">
+                <img class="youtube" src="images/Youtube.png" alt="">
+              </div>
+
+              <div class="col-sm-3">
+                <img class="youtube" src="images/Youtube.png" alt="">
+              </div>
+
+              <div class="col-sm-3">
+                <img class="youtube" src="images/Youtube.png" alt="">
+              </div>
+
+              <div class="col-sm-3">
+                <img class="youtube" src="images/Youtube.png" alt="">
+              </div> -->
+
+
+
+
+
+
+              <!--section 1-->
+              <h3>Ruby <a class="arrow-link" href="####"> >> </a></h3>
+              <div class="col-sm-4">
+                <iframe  src="https://www.youtube.com/embed/4ccyAx0n7eg" frameborder="0" allowfullscreen></iframe>
+              </div>
+
+              <div class="col-sm-4">
+                <iframe  src="https://www.youtube.com/embed/4ccyAx0n7eg" frameborder="0" allowfullscreen></iframe>
+              </div>
+
+              <div class="col-sm-4">
+                <iframe  src="https://www.youtube.com/embed/4ccyAx0n7eg" frameborder="0" allowfullscreen></iframe>
+              </div>
+
+              <!--section 2-->
+              <h3>JavaScript <a class="arrow-link" href="####"> >> </a></h3>
+              <div class="col-sm-4">
+                <iframe  src="https://www.youtube.com/embed/4ccyAx0n7eg" frameborder="0" allowfullscreen></iframe>
+              </div>
+
+              <div class="col-sm-4">
+                <iframe  src="https://www.youtube.com/embed/4ccyAx0n7eg" frameborder="0" allowfullscreen></iframe>
+              </div>
+
+              <div class="col-sm-4">
+                <iframe  src="https://www.youtube.com/embed/4ccyAx0n7eg" frameborder="0" allowfullscreen></iframe>
+              </div>
+            </div> <!-- END Coding -->
+
+
+       <!-- C O N T A C T
+            <div id="menu3" class="tab-pane fade">
+              <h3>Contact</h3>
+              <p>Some content in menu 1.</p>
+            </div>
+       -->
+
+
+
+
+
+          </div>    <!-- END Nav Nav-Pills -->
+        </div>    <!-- END col-sm-12-->
+      </div>    <!-- END Nav Tabs -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- FOOTER -->
+      <div id="footer">
+        &copy; 2017 Loryleen Batioco. All Rights Reserved.
+      </div>
+
+<!-- END container here -->
+
+    </div>
+
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
