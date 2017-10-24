@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CLI Gem</title>
+    <link rel="stylesheet" href="../css/master.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  </head>
+
+  <body>
+    <div class="row"> <!-- ROW start -->
+
+      <div id="banner">
+        <h1><span id="lvl-up">LEVEL UP</span>,  LORY</h1>
+      </div>
+
+      <div class="nav">
+        <ul>
+          <li><a href="../index.html" class="first">HOME</a></li>
+          <li><a href="#" class="active">CLI GEM</a></li>
+        </ul>
+      </div>
+
+      <div class="post">
+        <h3 class="title">Minority Scholarships CLI App <a href="https://github.com/lnbatioco" target=_blank><i class="fa fa-github" style="font-size:36px"></i></a></h3>
+        <h5 class="date">October 21, 2017</h5>
+
+
+
+          <h4 class="section"><span class="arrows">>> </span>Goal</span></h4>
+          <p>
+            The goal of this project is to build an application that provides a Command Line Interface (CLI) to an external data source using Object Oriented Ruby.
+          </p>
+
+          <h4 class="section"><span class="arrows">>> </span>Brainstorming</span></h4>
+          <p class="tab">
+            When I first started brainstorming ideas on what to build, I wanted to explore the kinds of tools that would be helpful for students wanting to pursue a higher education. I thought about creating a library or study group finder, maybe even a research article reader. These were all great ideas, but none of them seemed to <span class="italicize">move</span> me. The following week I was in my Ethnic Studies class having a thoughtful discussion about racial and ethnic minorities being disproportionately poor and also underrepresented in colleges, especially with the rise of college tuition. It was heartbreaking listening to classmates’ financial struggles that nearly kept them from either enrolling or continuing their education. This was the defining moment that drove me to create a scholarship app for minority students.
+          </p>
+
+          <h4 class="section"><span class="arrows">>> </span>Minority Group</span></h4>
+          <p class="tab">
+            The website I’ve chosen to extract minority group data from is <span class="link"><a href="http://www.unigo.com/scholarships/minority" target=_blank>www.unigo.com</a></span> which keeps track of each minority group’s available scholarships, the sum amount of all its scholarship awards, and includes a list of all its scholarships. This gave me an idea of how I wanted to design the blueprint for the MinorityGroup class and its instances. By passing this url to Open-uri’s <span class="method-txt">open</span> method, I’ll receive its HTML content which I could then parse and target specific node sets that hold data I want to assign MinorityGroup instances. Each instance would have the ability to receive data and pass it as arguments into attribute accessors (<span class="keyword-txt">attr_accessor</span>) that would hold values for its name (<span class="keyword-txt">:name</span>), available scholarships (<span class="keyword-txt">:available</span>), sum amount of all its scholarship awards
+            (<span class="keyword-txt">:total</span>), url to access its scholarships page (<span class="keyword-txt">:url</span>), and an array containing all its scholarships
+            (<span class="keyword-txt">:scholarships</span>). Incorporating <span class="keyword-txt">attr_accessor</span> is a great way to simplify writer and reader instance methods that don’t perform any special task.
+          </p>
+
+          <h4 class="section"><span class="arrows">>> </span>Removing Ads</span></h4>
+          <p class="tab">
+            While scraping node sets, I received an error related to a MinorityGroup instance that had its name equal to an empty string. An error triggered because this particular instance could not have data written into its url attribute. It turned out this instance was an ad that was contained in the same nodes I was extracting MinorityGroup instance data. My program could not extract the ad’s url because it did not have an <span class="keyword-txt">< a href="#" ></span> element. To bypass the url error, instead of immediately writing in an instance’s url, I created a conditional <span class="method-txt">if/else</span> statement within the Scraper class’
+            <span class="method-txt">#self.make_minority_group</span> method that would set an instance’s <span class="keyword-txt">url=nil</span> if an instance had a <span class="keyword-txt">name=””</span>. I then implemented a MinorityGroup class method called <span class="method-txt">#self.delete_ads</span> which iterates through all class instances stored in the class variable (<span class="keyword-txt">@@all</span>), identifies ads by searching for instances with <span class="keyword-txt">name=””</span>, deletes the instance, and returns all valid instances.
+            </p>
+
+          <h4 class="section"><span class="arrows">>> </span>Scholarships</span></h4>
+          <p class="tab">
+            After successfully scraping MinorityGroup instances, I could now iterate through each instance, grab its scholarships page url, pass that url as an argument into Open-uri’s <span class="method-txt">open</span> method, and use Nokogiri to scrape the scholarship list for data needed to create instances of the Scholarships class. Each instance of this class would have an <span class="keyword-txt">attr_accessor</span> for name (<span class="keyword-txt">:name</span>), amount (<span class="keyword-txt">:amount</span>), deadline (<span class="keyword-txt">:deadline</span>), description (<span class="keyword-txt">:description</span>), and url to access more information (<span class="keyword-txt">:url</span>). It was tricky figuring out how to target a scholarship’s amount due to the node layout, so I passed the scholarship’s url into Open-uri’s <span class="method-txt">open</span> method and used Nokogiri to target the node it was contained in.
+          </p>
+
+          <h4 class="section"><span class="arrows">>> </span>Object Relationships</span></h4>
+          <p class="tab">
+            Since I envisioned this program to interact with users by allowing them to select a minority group and view its list of scholarships, it was essential to establish the belongs to and has many relationship between the MinorityGroup and Scholarship classes. I wanted my program to recognize that a scholarship belongs to a minority group and that a minority group has many scholarships. To enable the belongs to relationship, I added the <span class="keyword-txt">attr_accessor</span> for <span class="keyword-txt">:minority_group</span> to the Scholarships class which lets a scholarship instance receive and output the minority group it was assigned. To enable the has many relationship, I created an <span class="method-txt">#add_scholarships</span> instance method to the MinorityGroup class which lets instances pass in a scholarship as an argument and add it to its scholarships (<span class="keyword-txt">:scholarships</span>) collection. It’s important to establish these relationships the moment a scholarship is instantiated in the Scraper class’ <span class="method-txt">#self.scrape_scholarships</span> method because this is when data is seamlessly being assigned through various iterative processes.
+          </p>
+
+
+          <h4 class="section"><span class="arrows">>> </span>CLI</span></h4>
+          <p class="tab">
+            Creating the CLI for this program was a lot of fun because I could be creative when designing the user interface. The most challenging part was figuring out ways to boost the readability of scholarship lists and being able to easily navigate through them. I found it helpful to use the <span class="link"><a href="https://github.com/fazibear/colorize">colorize</a></span> Ruby gem to add colors to text and text background to help users visually identify the type of information that was being represented such as when an error has occurred or draw attention to a particular area such as a selected menu option. Now I don’t want to spoil all the neat little features of my program, so I highly recommend you check it out for yourself in the video below!
+          </p>
+
+
+          <h4 class="section"><span class="arrows">>> </span>Video Demo</span></h4>
+          <div class="video">
+            <iframe width="660" height="405" src="https://www.youtube-nocookie.com/embed/-oi0MC6IHuc?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+          </div>
+
+
+
+      </div>
+
+    </div> <!-- ROW end -->
+
+  </body>
+</html>
