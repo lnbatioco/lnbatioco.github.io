@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CLI Gem</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  </head>
+
+  <body>
+    <div class="row"> <!-- ROW start -->
+
+      <div id="banner">
+        <h1><span id="lvl-up">LEVEL UP</span>,  LORY</h1>
+      </div>
+
+      <div class="nav">
+        <ul>
+          <li><a href="../index.html" class="first">HOME</a></li>
+          <li><a href="#" class="active">CLI GEM</a></li>
+        </ul>
+      </div>
+
+      <div class="post">
+        <h3 class="title">Minority Scholarships CLI App <i class="fa fa-github" style="font-size:36px"></i></h3>
+        <h5 class="date">October 21, 2017</h5>
+
+        <div class="video">
+          <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/-oi0MC6IHuc?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+
+          <h4 class="section">Goal</h4>
+          <p>The goal of this project is to build an application that provides a Command Line Interface (CLI) to an external data source using Object Oriented Ruby.</p>
+
+          <h4 class="section">Brainstorming</h4>
+          <p class="tab">When I first started brainstorming ideas on what to build, I wanted to explore the kinds of tools that would be helpful for students wanting to pursue a higher education. I thought about creating a library or study group finder, a research article reader--all of which were great choices, but none of them seemed to move me. Within the same week of brainstorming I was in my Ethnic Studies class having a thoughtful discussion about racial and ethnic minorities being disproportionately poor and also underrepresented in colleges, especially with the rise of college tuition. It was heartbreaking listening to classmates’ financial struggles that nearly kept them from either enrolling or continuing their education. This was the defining moment that drove me to create a scholarship app for minority students.</p>
+
+          <h4 class="section">Scraping Minority Groups</h4>
+          <p class="tab">The site I chose to extract scholarship data from was www.unigo.com/scholarships/minority. (talk about Nokogiri and Open-uri) I liked this scholarship website in particular because it kept track of the number of scholarships available in each minority group, the sum total of all its scholarship awards, and a list of all its scholarships. This gave me an idea of how I wanted to design Minority Group and Scholarship classes to produce objects that relate to each other.</p>
+
+          <h4 class="section">Removing Ads</h4>
+          <p class="tab">Each instance of the Minority Group class would have attributes for name, available scholarships, sum total of scholarship awards, a link to access its collection of scholarships, and an instance variable to collect its scholarships. As I was scraping the html elements that contained these attributes, I kept getting errors related to a MinorityGroup instance with an empty string as its name because the program could not write its url attribute. It turned out ads were also contained in the same div class as MinorityGroup instances and it did not have the <a> element nor an href attribute to extract its url, so I implemented a MinorityGroup class method called #self.delete_ads. This method identifies ads by searching for instances with empty strings as names, set its url to nil, delete the instance, and then return the class variable @@all containing all valid instances.</p>
+
+          <h4 class="section">Scraping Scholarships</h4>
+          <p class="tab">Now that I had successfully scraped the data needed to create MinorityGroup instances, the next step was to scrape scholarship data and create scholarship instances. I iterated through each MinorityGroup instances’ urls to extract each scholarship’s name, deadline, description, and url. It was tricky figuring out how to precisely target the scholarship’s amount due to the div layout, so I iterated through the Scholarship instance’s url and was happy to find that the amount had its own div.</p>
+
+
+
+
+
+      </div>
+
+    </div> <!-- ROW end -->
+
+  </body>
+</html>
