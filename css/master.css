@@ -118,12 +118,12 @@ h5.date {
 }
 
 p {
+  color: white;
   font-size: 19px;
   line-height: 2;
 }
 
 .tab {
-  color: white;
   font-size: 19px;
   text-indent: 40px;
 }

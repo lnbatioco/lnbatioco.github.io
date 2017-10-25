@@ -57,7 +57,14 @@
 
           <h4 class="section"><span class="arrows">>> </span>Object Relationships</span></h4>
           <p class="tab">
-            Since I envisioned this program to interact with users by allowing them to select a minority group and view its list of scholarships, it was essential to establish the belongs to and has many relationship between the MinorityGroup and Scholarship classes. I wanted my program to recognize that a scholarship belongs to a minority group and that a minority group has many scholarships. To enable the belongs to relationship, I added the <span class="keyword-txt">attr_accessor</span> for <span class="keyword-txt">:minority_group</span> to the Scholarships class which lets a scholarship instance receive and output the minority group it was assigned. To enable the has many relationship, I created an <span class="method-txt">#add_scholarships</span> instance method to the MinorityGroup class which lets instances pass in a scholarship as an argument and add it to its scholarships (<span class="keyword-txt">:scholarships</span>) collection. It’s important to establish these relationships the moment a scholarship is instantiated in the Scraper class’ <span class="method-txt">#self.scrape_scholarships</span> method because this is when data is seamlessly being assigned through various iterative processes.
+            Since I envisioned this program to interact with users by allowing them to select a minority group and view its list of scholarships, it was essential to establish the <span class="method-txt">belongs to</span> and <span class="method-txt">has many</span> relationship between the MinorityGroup and Scholarship classes. I wanted my program to recognize that a scholarship <span class="italicize">belongs to</span> a minority group and that a minority group <span class="italicize">has many</span> scholarships.
+
+            To enable the belongs to relationship, I added the <span class="keyword-txt">attr_accessor</span> for <span class="keyword-txt">:minority_group</span> to the Scholarships class which lets a scholarship instance receive and output the minority group it was assigned.
+
+            To enable the has many relationship, I created an <span class="method-txt">#add_scholarships</span> instance method to the MinorityGroup class which lets instances pass in a scholarship as an argument and add it to its scholarships (<span class="keyword-txt">:scholarships</span>) collection.
+
+            It’s important to establish these relationships the moment a scholarship is instantiated in the Scraper class’ <span class="method-txt">#self.scrape_scholarships</span> method because this is when data is seamlessly being assigned through various iterative processes.
+
           </p>
 
 
